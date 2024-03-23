@@ -6,14 +6,14 @@ The character device implement several required features to construct and run a 
 
 1. The module has to automatically create one device named `maze` in the `/dev` filesystem. Each process can create only one maze at the same time. Once a maze is created, the process can get the size of the maze, the position of the player (current position, start position, end position) in the maze, and the layout of the maze. When the device is opened by a process, the process can interact with the module using `read`, `write`, and `ioctl` operations. Details of each of the commands are summarized as follows.
 2. The `ioctl` interface. The `ioctl` command supports the following commands. The definition of the commands can be obtained from the header file `maze.h`.
-  - `MAZE_CREATE`: Create a new maze. The maze layout and the player’s positions are all randomly generated. It is ensured there is a valid path from the start position to the end position.
-  - `MAZE_RESET`: Reset the position of the player to the start position.
-  - `MAZE_DESTROY`: Destroy a maze if it has been created.
-  - `MAZE_GETSIZE`: Get the dimension of the maze.
-  - `MAZE_MOVE`: Move the player position on the maze.
-  - `MAZE_GETPOS`: Get the player’s position on the maze.
-  - `MAZE_GETSTART`: Get the start position of the maze.
-  - `MAZE_GETEND`: Get the end position of the maze.
+    - `MAZE_CREATE`: Create a new maze. The maze layout and the player’s positions are all randomly generated. It is ensured there is a valid path from the start position to the end position.
+    - `MAZE_RESET`: Reset the position of the player to the start position.
+    - `MAZE_DESTROY`: Destroy a maze if it has been created.
+    - `MAZE_GETSIZE`: Get the dimension of the maze.
+    - `MAZE_MOVE`: Move the player position on the maze.
+    - `MAZE_GETPOS`: Get the player’s position on the maze.
+    - `MAZE_GETSTART`: Get the start position of the maze.
+    - `MAZE_GETEND`: Get the end position of the maze.
 3. The `read` interface. A process can obtain the layout of a maze using the read operation.
 4. The `write` interface. In addition to the `MAZE_MOVE` command in the `ioctl` interface, a process can move the current positoin of the player in the maze in a batch manner.
 5. The `/proc/maze` interface. The content of this file is the status of all the mazes created by user space processes.
