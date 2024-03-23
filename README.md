@@ -19,6 +19,7 @@ The character device implement several required features to construct and run a 
 5. The `/proc/maze` interface. The content of this file is the status of all the mazes created by user space processes.
 
 ### Demo
+Make the `mazemod.c` file, and run `insmod mazemod.ko` to initialize the kernel module first.
 1. Run `mazetest 0`
 ```
 ### case - cat /proc/maze ###
